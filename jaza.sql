@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-03-2021 a las 22:27:45
+-- Tiempo de generación: 12-03-2021 a las 19:20:10
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `jaza`
 --
+CREATE DATABASE IF NOT EXISTS `jaza` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `jaza`;
 
 -- --------------------------------------------------------
 
