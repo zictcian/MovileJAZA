@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_application_1/pages/login.dart';
+void main() {
+  runApp(MyApp());
+}
 
-void main()=>runApp(MyApp());
-
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Jaza corp',
-      home: LoginList(),
-      routes: <String,WidgetBuilder(
-
-      )>,
+      home: Center(child: LoginList()),
     );
   }
 }
