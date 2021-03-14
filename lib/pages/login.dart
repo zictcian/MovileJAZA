@@ -7,16 +7,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Login extends StatelessWidget {
+var fail = 0;
+final navigatorKey = GlobalKey<NavigatorState>();
 
 TextEditingController email = new TextEditingController();
 TextEditingController pass = new TextEditingController();
 Future<List> _login() async {
-  final response = await http.post("http://localhost/jaza/login.php", body: {
+  final response = await http.post("http://192.168.100.6/jaza/login.php", body: {
     "email": email.text,
     "password": pass.text,
-  });
 
-  var datauser = json.decode(response.body);
+  });
+  fail = 0;
+  var datauser;
+  if (response.statusCode == 200) {
+        datauser = json.decode(response.body);
+        print("Conexion exitosa");
+    } else {
+       print('Error de conexion');
+       fail = 1;
+    }
+  if(datauser.length == 0){
+    fail = 1;
+  }else{
+    fail = 0;
+  }
   return datauser;
 }
 
@@ -82,7 +97,47 @@ Future<List> _login() async {
                           ),
                         ),
                       ),
-                      _loginButton(),
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 25.0),
+                        width: double.infinity,
+                        child: RaisedButton(
+                          elevation: 5.0,
+                          onPressed: () async {
+                            await _login();
+                              if(fail == 1){
+                                return showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: Text('ERROR'),
+                                      content: Text(
+                                          'usuario y/o contraseña incorrecto'),
+                                      actions: <Widget>[
+                                        new FlatButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: new Text('ok'))
+                                      ],
+                                    );
+                                  },
+                                );
+                              }
+                            },
+                          padding: EdgeInsets.all(15.0),
+                          color: Color.fromRGBO(48, 194, 139, 1.0),
+                          child: Text(
+                            'LOGIN',
+                            style: TextStyle(
+                              color: Colors.white ,
+                              letterSpacing: 1.5,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'OpenSans',
+                            ),
+                          ),
+                        ),
+                      ),
                       _signUpButton()
                     ],
                   ),
@@ -129,6 +184,7 @@ Future<List> _login() async {
     );
   }
 
+  @override
   Widget _password() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,33 +218,7 @@ Future<List> _login() async {
     );
   }
 
-
-   Widget _loginButton() {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 25.0),
-      width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
-        onPressed: () {
-          _login();
-        },
-        padding: EdgeInsets.all(15.0),
-        color: Color.fromRGBO(48, 194, 139, 1.0),
-        child: Text(
-          'LOGIN',
-          style: TextStyle(
-            color: Colors.white ,
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
-          ),
-        ),
-      ),
-    );
-  }
-
-    Widget _signUpButton() {
+  Widget _signUpButton() {
     return GestureDetector(
       onTap: () => print('Aqui va el metodo de andy'),
       child: RichText(
