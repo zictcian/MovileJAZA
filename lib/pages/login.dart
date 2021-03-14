@@ -1,9 +1,8 @@
-
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/register.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Login extends StatelessWidget {
@@ -138,7 +137,31 @@ Future<List> _login() async {
                           ),
                         ),
                       ),
-                      _signUpButton()
+                      GestureDetector(
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => register())),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Don\'t have an Account? ',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15.0,
+
+                                ),
+                              ),
+                              TextSpan(
+                                text: 'create a new account',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(50, 205, 50, 1.0),
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -218,32 +241,5 @@ Future<List> _login() async {
     );
   }
 
-  Widget _signUpButton() {
-    return GestureDetector(
-      onTap: () => print('Aqui va el metodo de andy'),
-      child: RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: 'Don\'t have an Account? ',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 15.0,
-
-              ),
-            ),
-            TextSpan(
-              text: 'create a new account',
-              style: TextStyle(
-                color: Color.fromRGBO(50, 205, 50, 1.0),
-                fontSize: 15.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
 }
