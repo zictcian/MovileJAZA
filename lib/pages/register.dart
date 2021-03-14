@@ -26,7 +26,7 @@ class register extends StatelessWidget {
             ),
             backgroundColor: Color.fromRGBO(255, 255, 255,1.0),
         ),
-        body: Center(
+        body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Padding(  
