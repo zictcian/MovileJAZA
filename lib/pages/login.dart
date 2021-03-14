@@ -1,9 +1,25 @@
 
-
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Login extends StatelessWidget {
+
+TextEditingController email = new TextEditingController();
+TextEditingController pass = new TextEditingController();
+Future<List> _login() async {
+  final response = await http.post("http://localhost/jaza/login.php", body: {
+    "email": email.text,
+    "password": pass.text,
+  });
+
+  var datauser = json.decode(response.body);
+  return datauser;
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,6 +108,7 @@ class Login extends StatelessWidget {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: TextField(
+            controller: email,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
               color: Colors.black,
@@ -124,6 +141,7 @@ class Login extends StatelessWidget {
           alignment: Alignment.centerLeft,
           height: 60.0,
           child: TextField(
+            controller: pass,
             obscureText: true,
             style: TextStyle(
               color: Colors.black,
@@ -151,7 +169,9 @@ class Login extends StatelessWidget {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Aqui entra a la app'),
+        onPressed: () {
+          _login();
+        },
         padding: EdgeInsets.all(15.0),
         color: Color.fromRGBO(48, 194, 139, 1.0),
         child: Text(
@@ -179,7 +199,7 @@ class Login extends StatelessWidget {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 15.0,
-                fontWeight: FontWeight.w400,
+
               ),
             ),
             TextSpan(
