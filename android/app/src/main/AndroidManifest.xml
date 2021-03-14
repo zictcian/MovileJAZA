@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.flutter_application_1">
    <application
+        android:usesCleartextTraffic="true"
         android:label="flutter_application_1"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -14,6 +15,9 @@
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
+            <meta-data android:name="io.flutter.network-policy"
+              android:resource="@xml/network_security_config"/>
+              
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
