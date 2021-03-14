@@ -8,7 +8,7 @@ class register extends StatelessWidget {
   TextEditingController passwordConfirmController = TextEditingController();
 
     void addData() {
-    var url = "http://192.168.1.70/jaza/adddata.php";
+    var url = "http://192.168.100.6/jaza/adddata.php";
 
     http.post(url, body: {
       "email": emailController.text,
@@ -22,7 +22,7 @@ class register extends StatelessWidget {
         appBar: AppBar(
             leading: IconButton(
               icon: Icon(Icons.arrow_back, color: Colors.black),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginList())),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Login())),
             ),
             backgroundColor: Color.fromRGBO(255, 255, 255,1.0),
         ),
@@ -93,7 +93,7 @@ class register extends StatelessWidget {
                       emailController.clear();
                       passwordController.clear();
                       passwordConfirmController.clear();
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginList()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                     }else{
                       showDialog(
                         context: context,
