@@ -36,13 +36,10 @@ class _MyAppState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Perfil de usuario',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Profile'),
-          backgroundColor: Color.fromRGBO(120, 120, 0, 1),
+          title: Text('Datos Personales'),
+          backgroundColor: Color.fromRGBO(69, 65, 64, 1),
         ),
         body: Center(
           child: FutureBuilder<List<Data>>(
@@ -123,83 +120,67 @@ class DataList extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          constraints: BoxConstraints.expand(
-            height: 200,
+            child: Column(children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              "Datos del Usuario",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+                color: Color.fromRGBO(69, 65, 64, 1),
+              ),
+            ),
           ),
-        ),
-        Container(
-            decoration: BoxDecoration(
-                color: Colors.amber[600],
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(5.5),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: Colors.white)),
-                        color: Colors.amber[600],
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
-                          datas[0].name + " " + datas[0].lastName,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      "Usuario",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      "Direccion: " + (datas[0].address).toString(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      "Telefono: " + datas[0].phone,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          color: Colors.blue),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      "Correo: " + datas[0].email,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ])),
+          Padding(
+            padding: EdgeInsets.all(5.5),
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                datas[0].name + " " + datas[0].lastName,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  color: Color.fromRGBO(69, 65, 64, 1),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              "Direccion: " + (datas[0].address).toString(),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                color: Color.fromRGBO(69, 65, 64, 1),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              "Telefono: " + datas[0].phone,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Color.fromRGBO(69, 65, 64, 1)),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              "Correo: " + datas[0].email,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                color: Color.fromRGBO(69, 65, 64, 1),
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+        ])),
       ],
       // This trailing comma makes auto-formatting nicer for build methods.
     );

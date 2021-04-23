@@ -126,10 +126,10 @@ class Dashboard extends StatelessWidget {
       Navigator.pop(context);
     }
     return Scaffold(
-      backgroundColor: Color.fromRGBO(130, 130, 130, 1),
+      backgroundColor: Color.fromRGBO(233, 224, 207, 1),
       appBar: AppBar(
-        title: Text("Dashboard"),
-        backgroundColor: Color.fromRGBO(120, 120, 0, 1),
+        title: Text("Registro"),
+        backgroundColor: Color.fromRGBO(69, 65, 64, 1),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -221,10 +221,10 @@ class Dashboard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18.0),
                       ),
                       child: Text(
-                        'Siguente',
-                        style: TextStyle(fontSize: 12.0),
+                        'Siguiente',
+                        style: TextStyle(fontSize: 18.0),
                       ),
-                      color: Color.fromRGBO(120, 120, 0, 1),
+                      color: Color.fromRGBO(76, 0, 23, 1),
                       textColor: Colors.white,
                       onPressed: () {
                         print("Valido!");

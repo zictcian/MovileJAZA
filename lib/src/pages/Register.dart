@@ -66,6 +66,7 @@ class Register extends StatelessWidget {
     if (response.statusCode == 201) {
       print("OK");
       showToast(context, "Usuario creado");
+      redirectRegister(context);
     } else {
       showToast(context, "Error de creacion");
     }
@@ -74,7 +75,7 @@ class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(130, 130, 130, 1),
+      backgroundColor: Color.fromRGBO(233, 224, 207, 1),
       body: SingleChildScrollView(
           child: Container(
               alignment: Alignment.center,
@@ -173,7 +174,7 @@ class Register extends StatelessWidget {
                             'Siguiente',
                             style: TextStyle(fontSize: 20.0),
                           ),
-                          color: Color.fromRGBO(120, 120, 0, 1),
+                          color: Color.fromRGBO(76, 0, 23, 1),
                           textColor: Colors.white,
                           onPressed: () {
                             if (emailField.currentState.validate()) {
@@ -187,4 +188,11 @@ class Register extends StatelessWidget {
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+void redirectRegister(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Register()),
+  );
 }

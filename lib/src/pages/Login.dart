@@ -77,7 +77,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(130, 130, 130, 1),
+      backgroundColor: Color.fromRGBO(233, 224, 207, 1),
       body: SingleChildScrollView(
           child: Container(
               decoration: BoxDecoration(
@@ -145,11 +145,10 @@ class Login extends StatelessWidget {
                             obscureText: true,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.lock_rounded),
-                                fillColor: Colors.white,
+                                fillColor: Color.fromRGBO(76, 0, 23, 1),
                                 hintText: "Password",
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
+                                    borderRadius: BorderRadius.circular(15.0)),
                                 labelText: 'Contraseña'),
                             validator: (text) {
                               return verifyPassword(text);
@@ -165,7 +164,7 @@ class Login extends StatelessWidget {
                             child: Text(
                               "Olvido su contraseña?",
                               style: TextStyle(
-                                  color: Color.fromRGBO(120, 120, 0, 1),
+                                  color: Color.fromRGBO(76, 0, 23, 1),
                                   fontSize: 16,
                                   fontFamily: "Roboto",
                                   fontWeight: FontWeight.bold),
@@ -185,7 +184,7 @@ class Login extends StatelessWidget {
                             'Login',
                             style: TextStyle(fontSize: 16.0),
                           ),
-                          color: Color.fromRGBO(120, 120, 0, 1),
+                          color: Color.fromRGBO(180, 2, 32, 1),
                           textColor: Colors.white,
                           onPressed: () {
                             if (emailField.currentState.validate()) {
@@ -207,7 +206,7 @@ class Login extends StatelessWidget {
                             child: Text(
                               "Cree su cuenta aqui!",
                               style: TextStyle(
-                                  color: Color.fromRGBO(120, 120, 0, 1),
+                                  color: Color.fromRGBO(76, 0, 23, 1),
                                   fontSize: 17,
                                   fontFamily: "Roboto",
                                   fontWeight: FontWeight.normal),

@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primaryColor: Color.fromRGBO(255, 167, 0, 1),
+        primaryColor: Color.fromRGBO(0, 0, 0, 1),
         primaryTextTheme: TextTheme(headline6: TextStyle(color: Colors.white)),
-        backgroundColor: Color.fromRGBO(131, 135, 137, 1),
+        backgroundColor: Color.fromRGBO(233, 224, 207, 1),
       ),
       home: Login(),
     );
